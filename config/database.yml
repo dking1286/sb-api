@@ -13,3 +13,21 @@ test:
   pool: 5
   username: root
   password:
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: sb_staging
+  pool: 5
+  username: sb_stage
+  password:
+  host:
+  port:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: sb_production
+  pool: 5
+  username: root
+  password:
