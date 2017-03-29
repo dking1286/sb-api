@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329035047) do
+ActiveRecord::Schema.define(version: 20170329042821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,5 +30,22 @@ ActiveRecord::Schema.define(version: 20170329035047) do
     t.index ["company_id"], name: "index_roles_on_company_id", using: :btree
   end
 
+  create_table "skill_associations", force: :cascade do |t|
+    t.integer  "skill_id"
+    t.string   "regarding_type"
+    t.integer  "regarding_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["regarding_type", "regarding_id"], name: "index_skill_associations_on_regarding_type_and_regarding_id", using: :btree
+    t.index ["skill_id"], name: "index_skill_associations_on_skill_id", using: :btree
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "roles", "companies"
+  add_foreign_key "skill_associations", "skills"
 end
