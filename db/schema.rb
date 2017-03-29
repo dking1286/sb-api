@@ -10,16 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329042821) do
+ActiveRecord::Schema.define(version: 20170329043959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
+    t.string   "type"
     t.string   "name"
+    t.string   "param"
     t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "company_id"
+    t.decimal  "cost",       precision: 10, scale: 2, default: "0.0"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.index ["company_id"], name: "index_courses_on_company_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
@@ -46,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170329042821) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "courses", "companies"
   add_foreign_key "roles", "companies"
   add_foreign_key "skill_associations", "skills"
 end

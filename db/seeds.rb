@@ -1,7 +1,47 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Company.create(name: 'Snap', url: 'https://www.snap.com/en-US/jobs/')
+Company.create(name: 'AirBnB', url: 'https://www.airbnb.com/careers')
+Company.create(name: 'Facebook', url: 'https://www.facebook.com/careers/')
+School.create(name: 'Bloc', url: 'https://www.bloc.io')
+School.create(name: 'Harvard')
+School.create(name: 'Cornell')
+School.create(name: 'Princeton')
+School.create(name: 'Georgia Institute of Technology')
+School.create(name: 'University of Pennsylvania')
+School.create(name: 'Udacity', url: 'https://www.udacity.com')
+
+
+Company.where(type: nil).each do |company|
+  Role.create(name: 'iOS Engineer', company: company)
+  Role.create(name: 'Product Manager', company: company)
+  Role.create(name: 'User Experience Designer', company: company)
+end
+
+Skill.create(name: 'Computer science')
+Skill.create(name: 'Objective-C')
+Skill.create(name: 'Swift')
+Skill.create(name: 'Software architecture')
+Skill.create(name: 'Software development process')
+Skill.create(name: 'Pair programming')
+Skill.create(name: 'Mobile software development')
+Skill.create(name: 'Data structures')
+Skill.create(name: 'Version control')
+Skill.create(name: 'User interviews')
+Skill.create(name: 'User story writing')
+Skill.create(name: 'Feature prioritization')
+Skill.create(name: 'Market analysis')
+Skill.create(name: 'Business strategy')
+Skill.create(name: 'MVP process')
+Skill.create(name: 'Stakeholder managemnet')
+Skill.create(name: 'System thinking')
+Skill.create(name: 'Agile software development')
+Skill.create(name: 'Go to market strategy')
+Skill.create(name: 'User research')
+Skill.create(name: 'Responsive web design')
+Skill.create(name: 'Mobile application design')
+Skill.create(name: 'Wireframing')
+Skill.create(name: 'Interaction design')
+Skill.create(name: 'User interface design')
+Skill.create(name: 'Industrial design')
+Skill.create(name: 'HTML')
+Skill.create(name: 'CSS')
+Skill.create(name: 'Javascript')
