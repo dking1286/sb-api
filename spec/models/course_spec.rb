@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Course, type: :model do
   describe 'associations' do
     it { should belong_to(:school) }
+    it { should have_many(:skill_associations) }
+    it { should have_many(:skills).through(:skill_associations).inverse_of(:courses) }
   end
 
   describe 'validations' do
