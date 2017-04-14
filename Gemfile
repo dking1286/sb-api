@@ -7,7 +7,7 @@ end
 
 gem 'rails', '~> 5.0.2'
 gem 'pg'
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.10.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -23,6 +23,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'listen'
+  gem 'rails-controller-testing'
 end
 
 group :test do
