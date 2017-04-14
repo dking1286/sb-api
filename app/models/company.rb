@@ -6,6 +6,8 @@ class Company < ApplicationRecord
   validates :name, presence: true
   validates_uniqueness_of :param
 
+  scope :with_roles, -> { joins(:roles) }
+
   private
 
   def set_param

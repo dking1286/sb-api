@@ -26,6 +26,18 @@ RSpec.describe Company, type: :model do
     end
   end
 
+  describe 'scopes' do
+    describe 'with_roles' do
+      let!(:company_with_role) { create(:company) }
+      let!(:company_without_role) { create(:company) }
+      let!(:role) { create(:role, company: company_with_role) }
+
+      it 'returns only companies with roles' do
+        expect(Company.with_roles).to eq [company_with_role]
+      end
+    end
+  end
+
   describe 'set_param' do
     let!(:company) { build(:company) }
 
