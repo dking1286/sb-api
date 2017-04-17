@@ -8,6 +8,7 @@ end
 gem 'rails', '~> 5.0.2'
 gem 'pg'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'rack-cors'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
