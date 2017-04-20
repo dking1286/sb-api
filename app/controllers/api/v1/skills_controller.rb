@@ -2,6 +2,7 @@ class Api::V1::SkillsController < ApplicationController
   def index
     @skills = Skill.all
     @skills = regarding.skills if regarding
+    render json: @skills
   end
 
   private
