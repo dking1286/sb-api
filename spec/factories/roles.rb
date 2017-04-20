@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :role do
-    company nil
+    association :company, factory: :company
     name "MyString"
   end
 end
